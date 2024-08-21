@@ -1,0 +1,16 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:item_layers",
+  "textures": {
+    "layer0": "blazegear:item/flint_and_brimsteel_layer0",
+	"layer1": "blazegear:item/flint_and_brimsteel_layer1"
+  },
+  "forge_data": {
+	"layers": {
+	  "1": {
+		"block_light": 15,
+		"sky_light": 15
+	  }
+	}
+  }
+}

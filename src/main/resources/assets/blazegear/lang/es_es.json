@@ -1,0 +1,24 @@
+{	
+	"advancements.blazegear.obtain_brimsteel_ingot.title": "Caliente al tacto",
+	"advancements.blazegear.obtain_brimsteel_ingot.description": "Crea o encuentra un lingote de Brimsteel",
+	"advancements.blazegear.brimsteel_armour.title": "Cúbreme en llamas",
+	"advancements.blazegear.brimsteel_armour.description": "Consigue una armadura completa de Brimsteel",
+
+	"block.blazegear.brimsteel_block": "§6Bloque de Brimsteel",
+	"item.blazegear.brimsteel_sword": "§6Espada de Brimsteel",
+	"item.blazegear.brimsteel_axe": "§6Hacha de Brimsteel",
+	"item.blazegear.brimsteel_shovel": "§6Pala de Brimsteel",
+	"item.blazegear.brimsteel_pickaxe": "§6Pico de Brimsteel",
+	"item.blazegear.brimsteel_hoe": "§6Azada de Brimsteel",
+	"item.blazegear.brimsteel_helmet": "§6Casco de Brimsteel",
+	"item.blazegear.brimsteel_chestplate": "§6Peto de Brimsteel",
+	"item.blazegear.brimsteel_leggings": "§6Grebas de Brimsteel",
+	"item.blazegear.brimsteel_boots": "§6Botas de Brimsteel",
+	"item.blazegear.brimsteel_ingot": "§6Lingote de Brimsteel",
+	"item.blazegear.flint_and_brimsteel": "§6Pedernal y Brimsteel",
+	"item.blazegear.brimsteel_horse_armour": "§6Armadura de Brimsteel para caballo",
+	
+	"item.blazegear.brimsteel_horse_armour.tooltip": "Evita que el suelo caliente y el fuego dañen a los caballos.",
+	"item.blazegear.brimsteel_tool.tooltip": "Prende fuego a los objetivos, rompe los bloques inflamables el doble de rápido y funde automáticamente los minerales del bloque.",
+	"item.blazegear.brimsteel_armour.tooltip": "Equipar un conjunto completo evitará daños en el suelo y en el fuego."
+}

@@ -1,0 +1,56 @@
+{
+  "parent": "blazegear:obtain_brimsteel_ingot",
+  "display": {
+    "icon": {
+      "item": "blazegear:brimsteel_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.blazegear.brimsteel_armour.title"
+    },
+    "description": {
+      "translate": "advancements.blazegear.brimsteel_armour.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "brimsteel_armour": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazegear:brimsteel_helmet"
+            ]
+          },
+          {
+            "items": [
+              "blazegear:brimsteel_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "blazegear:brimsteel_leggings"
+            ]
+          },
+          {
+            "items": [
+              "blazegear:brimsteel_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brimsteel_armour"
+    ]
+  ]
+}

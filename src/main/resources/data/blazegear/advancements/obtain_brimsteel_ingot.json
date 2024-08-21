@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:nether/find_fortress",
+  "display": {
+    "icon": {
+      "item": "blazegear:brimsteel_ingot"
+    },
+    "title": {
+      "translate": "advancements.blazegear.obtain_brimsteel_ingot.title"
+    },
+    "description": {
+      "translate": "advancements.blazegear.obtain_brimsteel_ingot.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "brimsteel_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazegear:brimsteel_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "brimsteel_ingot"
+    ]
+  ]
+}

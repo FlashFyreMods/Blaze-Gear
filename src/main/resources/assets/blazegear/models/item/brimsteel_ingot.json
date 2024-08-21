@@ -1,0 +1,15 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:item_layers",
+  "textures": {
+    "layer0": "blazegear:item/brimsteel_ingot"
+  },
+  "forge_data": {
+	"layers": {
+	  "0": {
+		"block_light": 15,
+		"sky_light": 15
+	  }
+	}
+  }
+}

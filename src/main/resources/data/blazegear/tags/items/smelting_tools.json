@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "blazegear:brimsteel_axe",
+	"blazegear:brimsteel_hoe",
+	"blazegear:brimsteel_pickaxe",
+	"blazegear:brimsteel_shovel",
+    "blazegear:brimsteel_sword"
+  ]
+}

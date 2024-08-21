@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"entries": [
+		"blazegear:blaze_inject",
+		"blazegear:nether_fortress_inject",
+		"blazegear:brimsteel_smelting"
+	]
+}
