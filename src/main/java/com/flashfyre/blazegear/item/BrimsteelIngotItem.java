@@ -1,4 +1,4 @@
-package com.flashfyre.blazegear.items;
+package com.flashfyre.blazegear.item;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

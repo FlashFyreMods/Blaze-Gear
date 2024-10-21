@@ -10,7 +10,8 @@ import net.minecraftforge.network.NetworkEvent;
 public class ClientPacketHandler {
 	
 	/**
-	 * Spawns a smoke particle on the client if the camera is not first person or the entity in the packet is different to the client.
+	 * Spawns a smoke particle on the client at an entity wearing brimsteel.
+	 * If the client is the same as the entity wearing the brimsteel, this only happens if the camera is not first person.
 	 * 
 	 * @param packet
 	 * @param ctx
@@ -19,7 +20,7 @@ public class ClientPacketHandler {
 		Minecraft instance = Minecraft.getInstance();
 		ClientLevel level = instance.level;
 		if(instance.player != null) {
-			if(!instance.options.getCameraType().isFirstPerson() || packet.entityId != instance.player.getId()) {
+			if(packet.entityId != instance.player.getId() || !instance.options.getCameraType().isFirstPerson()) {
 				for(int n = 0; n < 2; ++n) {
 					level.addParticle(ParticleTypes.LARGE_SMOKE, false, packet.x, packet.y, packet.z, 0, 0, 0);
 		        }			

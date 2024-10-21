@@ -3,8 +3,8 @@ package com.flashfyre.blazegear.registry;
 import java.util.function.Supplier;
 
 import com.flashfyre.blazegear.BlazeGear;
-import com.flashfyre.blazegear.blocks.BrimsteelBlock;
-import com.flashfyre.blazegear.items.BrimsteelBlockItem;
+import com.flashfyre.blazegear.block.BrimsteelBlock;
+import com.flashfyre.blazegear.item.BrimsteelBlockItem;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

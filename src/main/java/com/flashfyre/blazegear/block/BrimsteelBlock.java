@@ -1,4 +1,4 @@
-package com.flashfyre.blazegear.blocks;
+package com.flashfyre.blazegear.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;

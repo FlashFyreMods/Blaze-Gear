@@ -1,16 +1,10 @@
 package com.flashfyre.blazegear.registry;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.flashfyre.blazegear.BlazeGear;
-import com.flashfyre.blazegear.items.BrimsteelArmourItem;
-import com.flashfyre.blazegear.items.BrimsteelAxeItem;
-import com.flashfyre.blazegear.items.BrimsteelHoeItem;
-import com.flashfyre.blazegear.items.BrimsteelHorseArmourItem;
-import com.flashfyre.blazegear.items.BrimsteelIngotItem;
-import com.flashfyre.blazegear.items.BrimsteelPickaxeItem;
-import com.flashfyre.blazegear.items.BrimsteelShovelItem;
-import com.flashfyre.blazegear.items.BrimsteelSwordItem;
+import com.flashfyre.blazegear.item.*;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -42,6 +36,13 @@ public class BGItems {
 			List.of(Tiers.NETHERITE));
     
     private final static int[] BRIMSTEEL_ARMOUR_VALUES = new int[]{3, 6, 8, 3};
+
+	public static final UUID[] SLOT_MODIFIER_UUIDS = {
+			UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"),
+			UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"),
+			UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"),
+			UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")
+	};
     
 	public static final ArmorMaterial ARMOUR_BRIMSTEEL = new ArmorMaterial()
     {    	
@@ -94,7 +95,8 @@ public class BGItems {
 	
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BlazeGear.MOD_ID);
 	
-	public static final RegistryObject<Item> BRIMSTEEL_INGOT = ITEMS.register("brimsteel_ingot", () -> new BrimsteelIngotItem(new Item.Properties().fireResistant()));
+	public static final RegistryObject<Item> BRIMSTEEL_INGOT = ITEMS.register("brimsteel_ingot", () -> new FuelItem(6000, new Item.Properties().fireResistant()));
+	public static final RegistryObject<Item> BRIMSTEEL_SHIELD = ITEMS.register("brimsteel_shield", () -> new BrimsteelShieldItem(new Item.Properties().durability(840).fireResistant()));
 	public static final RegistryObject<Item> BRIMSTEEL_SWORD = ITEMS.register("brimsteel_sword", () -> new BrimsteelSwordItem(BRIMSTEEL_TOOL_TIER, 3, -2.4F, new Item.Properties().fireResistant()));
 	public static final RegistryObject<Item> BRIMSTEEL_AXE = ITEMS.register("brimsteel_axe", () -> new BrimsteelAxeItem(BRIMSTEEL_TOOL_TIER, 5.0F, -3.0F, new Item.Properties().fireResistant()));
 	public static final RegistryObject<Item> BRIMSTEEL_PICKAXE = ITEMS.register("brimsteel_pickaxe", () -> new BrimsteelPickaxeItem(BRIMSTEEL_TOOL_TIER, 1, -2.4F, new Item.Properties().fireResistant()));
@@ -106,4 +108,5 @@ public class BGItems {
 	public static final RegistryObject<Item> BRIMSTEEL_BOOTS = ITEMS.register("brimsteel_boots", () -> new BrimsteelArmourItem(ARMOUR_BRIMSTEEL, Type.BOOTS, new Item.Properties().fireResistant()));
 	public static final RegistryObject<Item> FLINT_AND_BRIMSTEEL = ITEMS.register("flint_and_brimsteel", () -> new FlintAndSteelItem(new Item.Properties().durability(448).fireResistant()));
 	public static final RegistryObject<Item> BRIMSTEEL_HORSE_ARMOUR = ITEMS.register("brimsteel_horse_armour", () -> new BrimsteelHorseArmourItem(10, new Item.Properties().stacksTo(1).fireResistant()));
+	public static final RegistryObject<Item> BRIMSTEEL_NUGGET = ITEMS.register("brimsteel_nugget", () -> new FuelItem(666, new Item.Properties().fireResistant()));
 }

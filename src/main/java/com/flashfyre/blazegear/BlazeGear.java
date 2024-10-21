@@ -2,6 +2,11 @@ package com.flashfyre.blazegear;
 
 import java.util.Optional;
 
+import com.flashfyre.blazegear.registry.BGAttributes;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.world.entity.EntityType;
+import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,15 +53,35 @@ public class BlazeGear
         BGItems.ITEMS.register(modBus);
         BGBlocks.BLOCKS.register(modBus);
         BGLootModifiers.LOOT_MODIFIERS.register(modBus);
+		BGAttributes.ATTRIBUTES.register(modBus);
     }
     
     @SubscribeEvent
 	public static void onCommonSetup(FMLCommonSetupEvent event) {
 		SIMPLE_CHANNEL.registerMessage(1, BrimsteelParticlePacket.class, BrimsteelParticlePacket::encode, BrimsteelParticlePacket::decode, BrimsteelParticlePacket::handle, Optional.of(NetworkDirection.PLAY_TO_CLIENT));
 	}
+
+	@SubscribeEvent
+	public static void addAttributesToEntities(EntityAttributeModificationEvent event) {
+		event.add(EntityType.PLAYER, BGAttributes.FLAMMABLE_BLOCK_BREAK_SPEED_BONUS.get());
+		for(EntityType entityType : event.getTypes()) {
+			if(!entityType.fireImmune() && !event.has(entityType, BGAttributes.FIRE_RESISTANCE.get())) {
+				event.add(entityType, BGAttributes.FIRE_RESISTANCE.get());
+			}
+			if(!event.has(entityType, BGAttributes.ATTACKER_BURN_TIME.get())) {
+				event.add(entityType, BGAttributes.ATTACKER_BURN_TIME.get());
+			}
+			if(!event.has(entityType, BGAttributes.BLOCKED_ATTACKER_BURN_TIME.get())) {
+				event.add(entityType, BGAttributes.BLOCKED_ATTACKER_BURN_TIME.get());
+			}
+			if(!event.has(entityType, BGAttributes.TARGET_BURN_TIME.get())) {
+				event.add(entityType, BGAttributes.TARGET_BURN_TIME.get());
+			}
+		}
+	}
     
     @SubscribeEvent
-	public static void buildContents(BuildCreativeModeTabContentsEvent event) {
+	public static void buildCreativeTabContents(BuildCreativeModeTabContentsEvent event) {
     	if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
     		event.accept(BGItems.BRIMSTEEL_SHOVEL);
 			event.accept(BGItems.BRIMSTEEL_PICKAXE);
@@ -72,10 +97,20 @@ public class BlazeGear
 			event.accept(BGItems.BRIMSTEEL_HORSE_ARMOUR);
         } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			event.accept(BGItems.BRIMSTEEL_INGOT);
+			event.accept(BGItems.BRIMSTEEL_NUGGET);
 			
 		} else if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
 			event.accept(BGBlocks.BRIMSTEEL_BLOCK);
 		}
     }
+
+	@SubscribeEvent
+	public static void onClientSetup(FMLClientSetupEvent event) {
+		event.enqueueWork(() -> {
+			ItemProperties.register(BGItems.BRIMSTEEL_SHIELD.get(), new ResourceLocation("blocking"), (stack, level, livingEntity, seed) -> {
+				return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == stack ? 1.0F : 0.0F;
+			});
+		});
+	}
 }
 
