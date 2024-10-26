@@ -22,6 +22,7 @@
 	
 	"item.blazegear.brimsteel_tool.tooltip": "Smelts block drops",
 	
+	"attribute.blazegear.name.player.flammable_block_break_speed_bonus": "Extra Flammable Block Efficiency",
 	"attribute.blazegear.name.generic.fire_resistance": "Fire Resistance",
 	"attribute.blazegear.name.generic.attacker_burn_time": "Attacker Burn Time",
 	"attribute.blazegear.name.generic.blocked_attacker_burn_time": "Blocked Attacker Burn Time",

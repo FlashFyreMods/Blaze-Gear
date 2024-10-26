@@ -107,7 +107,7 @@ public class BGUtil {
 	public static ImmutableMultimap.Builder<Attribute, AttributeModifier> toolModifierBuilder(EquipmentSlot slot, ItemStack stack) {
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = new ImmutableMultimap.Builder<Attribute, AttributeModifier>();
 		AttributeModifier targetBurnTimeMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Target burn time", 4F, AttributeModifier.Operation.ADDITION);
-		AttributeModifier flammableBlockEfficiencyMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Flammable mining efficiency", 50F, AttributeModifier.Operation.ADDITION);
+		AttributeModifier flammableBlockEfficiencyMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Flammable mining efficiency", 5F, AttributeModifier.Operation.ADDITION);
 		builder.put(BGAttributes.TARGET_BURN_TIME.get(), targetBurnTimeMod);
 		builder.put(BGAttributes.FLAMMABLE_BLOCK_BREAK_SPEED_BONUS.get(), flammableBlockEfficiencyMod);
 		return builder;

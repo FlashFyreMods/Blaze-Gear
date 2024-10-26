@@ -86,7 +86,6 @@ public class EventHandler {
 	public static void getBreakSpeed(PlayerEvent.BreakSpeed event) {
 		if(event.getEntity().getAttribute(BGAttributes.FLAMMABLE_BLOCK_BREAK_SPEED_BONUS.get()) != null) {
 			double bonus = event.getEntity().getAttributeValue(BGAttributes.FLAMMABLE_BLOCK_BREAK_SPEED_BONUS.get());
-			double test = event.getEntity().getAttributeValue(BGAttributes.FIRE_RESISTANCE.get());
 			if(bonus > 0 && event.getState().ignitedByLava()) {
 				event.setNewSpeed(event.getOriginalSpeed() + (float) bonus);
 			}
