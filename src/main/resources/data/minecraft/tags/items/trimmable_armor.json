@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "blazegear:brimsteel_helmet",
+	"blazegear:brimsteel_chestplate",
+	"blazegear:brimsteel_leggings",
+	"blazegear:brimsteel_boots"
+  ]
+}

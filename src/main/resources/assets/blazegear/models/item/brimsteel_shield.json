@@ -1,4 +1,5 @@
 {
+	"parent": "forge:item/default",
     "gui_light": "front",
     "textures": {
         "particle": "blazegear:block/brimsteel_block",

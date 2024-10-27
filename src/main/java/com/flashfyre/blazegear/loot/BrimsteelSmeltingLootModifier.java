@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
+import org.apache.commons.lang3.mutable.MutableBoolean;
 
 public class BrimsteelSmeltingLootModifier extends LootModifier {
 	
@@ -29,36 +31,43 @@ public class BrimsteelSmeltingLootModifier extends LootModifier {
 	}
 
 	@Override
-	protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+	protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext ctx) {
 		ObjectArrayList<ItemStack> items = new ObjectArrayList<ItemStack>();
-        generatedLoot.forEach((stack) -> 
-        	items.add(smelt(stack, context))     	
-        );
+		MutableBoolean smeltedSomething = new MutableBoolean(false);
+		generatedLoot.forEach(stack -> {
+			items.add(smelt(stack, ctx, smeltedSomething));
+		});
+		if(smeltedSomething.isTrue() && ctx.getParamOrNull(LootContextParams.ORIGIN) != null) {
+			Vec3 origin = ctx.getParam(LootContextParams.ORIGIN);
+			for(int i = 0; i < 5; ++i) {
+				ctx.getLevel().sendParticles(ParticleTypes.FLAME,
+						origin.x() + ctx.getLevel().getRandom().nextDouble() - 0.5D,
+						origin.y() + ctx.getLevel().getRandom().nextDouble() - 0.5D,
+						origin.z() + ctx.getLevel().getRandom().nextDouble() - 0.5D,
+						1, 0.0F, 0.0D, 0.0D, 0.0D);
+			}
+		}
         return items;
 	}
 	
-	public static ItemStack smelt(ItemStack stack, LootContext context) {
-		getAndSpawnXP(stack, context);
-		if(stack.isEmpty()) {
-			return stack;
-		} else {
-			Optional<SmeltingRecipe> opt = context.getLevel().getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), context.getLevel());
-	        if(opt.isPresent()) {
-	        	ItemStack result = opt.get().getResultItem(context.getLevel().registryAccess());
-	        	if(!result.isEmpty()) {
-	        		ItemStack newStack = result.copy();
-	        		newStack.setCount(stack.getCount() * result.getCount());
-	        		return newStack;
-	        	}
-	        }
-	        return stack;
-		}		
-	}
-	
-	public static void getAndSpawnXP(ItemStack stack, LootContext context) {
-		Optional<SmeltingRecipe> xp = context.getLevel().getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), context.getLevel());
-		xp.ifPresent(recipe -> 
-			splitAndSpawnExperience(context.getLevel(), context.getParamOrNull(LootContextParams.ORIGIN), 1, recipe.getExperience()));		
+	public static ItemStack smelt(ItemStack stack, LootContext ctx, MutableBoolean smeltedSomething) {
+		if(!stack.isEmpty()) {
+			Optional<SmeltingRecipe> opt = ctx.getLevel().getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), ctx.getLevel());
+			if(opt.isPresent()) {
+				SmeltingRecipe recipe = opt.get();
+				if(ctx.getParamOrNull(LootContextParams.ORIGIN) != null) {
+					splitAndSpawnExperience(ctx.getLevel(), ctx.getParam(LootContextParams.ORIGIN), 1, recipe.getExperience());
+				}
+				ItemStack result = opt.get().getResultItem(ctx.getLevel().registryAccess());
+				if(!result.isEmpty()) {
+					ItemStack newStack = result.copy();
+					newStack.setCount(stack.getCount() * result.getCount());
+					smeltedSomething.setTrue();
+					return newStack;
+				}
+			}
+		}
+		return stack;
 	}
 	
 	public static void splitAndSpawnExperience(Level world, Vec3 pos, int craftedAmount, float experience) {

@@ -29,7 +29,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BGItems {
 	
 	private static final TagKey<Block> BRIMSTEEL_TIER_TAG = BlockTags.create(new ResourceLocation("blazegear:needs_brimsteel_tool"));
-	private static final Tier BRIMSTEEL_TOOL_TIER = TierSortingRegistry.registerTier(
+	public static final Tier BRIMSTEEL_TOOL_TIER = TierSortingRegistry.registerTier(
 			new ForgeTier(3, 1750, 7.5F, 3.0F, 16, BRIMSTEEL_TIER_TAG, () -> Ingredient.of(BGItems.BRIMSTEEL_INGOT.get())), 
 			new ResourceLocation("blazegear:brimsteel"), 
 			List.of(Tiers.DIAMOND), 

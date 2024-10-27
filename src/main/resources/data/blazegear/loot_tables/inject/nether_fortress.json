@@ -1,18 +1,21 @@
 {
   "pools": [
     {
-      "name": "blazegear_inject",
-      "rolls": 1,
+      "name": "blazegear:materials",
+      "rolls": {
+        "min": 1,
+        "max": 2
+      },
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "blazegear:brimsteel_ingot",
-		  "weight": 2,
+          "name": "blazegear:brimsteel_nugget",
+		  "weight": 3,
 		  "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
+                "min": 2.0,
                 "max": 7.0,
                 "type": "minecraft:uniform"
               }
@@ -21,12 +24,42 @@
         },
 		{
           "type": "minecraft:item",
-          "name": "blazegear:brimsteel_horse_armour",
+          "name": "blazegear:brimsteel_ingot",
+		  "weight": 2,
+		  "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "name": "blazegear:equipment",
+      "rolls": {
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+		{
+          "type": "minecraft:item",
+          "name": "blazegear:brimsteel_shield",
 		  "weight": 1
         },
 		{
-          "type": "minecraft:empty",
-          "weight": 2
+          "type": "minecraft:item",
+          "name": "blazegear:flint_and_brimsteel",
+		  "weight": 1
+        },
+		{
+          "type": "minecraft:item",
+          "name": "blazegear:brimsteel_horse_armour",
+		  "weight": 1
         }
       ]
     }

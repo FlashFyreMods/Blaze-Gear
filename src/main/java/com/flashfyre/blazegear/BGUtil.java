@@ -18,7 +18,13 @@ import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.UUID;
+
 public class BGUtil {
+
+	public static final UUID TARGET_BURN_TIME_UUID = UUID.fromString("daf163b6-b5cb-4fe9-b21b-5616d6ed391b");
+	public static final UUID FLAMMABLE_MINING_EFFICIENCY_UUID = UUID.fromString("eea9503d-56d0-4db1-a91e-d031eae514c6");
+	public static final UUID SHIELD_BURN_TIME_UUID = UUID.fromString("d9abbf7b-020d-4adc-9336-7fb2f6fa4ff2");
 	
 	/**
 	 * Sends particle  packet to every player in serverLevel except for the specified player.
@@ -83,6 +89,19 @@ public class BGUtil {
 		}    	
     }
 
+	public static int getBrimsteelArmourCount(LivingEntity entity) {
+		int count = 0;
+		Iterable<ItemStack> armourStacks = entity.getArmorSlots();
+		if (Iterables.size(armourStacks) > 0) {
+			for(ItemStack stack : armourStacks) {
+				if(stack.getItem() instanceof ArmorItem item && item.getMaterial() == BGItems.ARMOUR_BRIMSTEEL) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static boolean isEntityWearingAnyBrimsteel(LivingEntity entity) {
 		if(entity instanceof AbstractHorse) {
 			AbstractHorse horse = (AbstractHorse) entity;
@@ -106,8 +125,8 @@ public class BGUtil {
 
 	public static ImmutableMultimap.Builder<Attribute, AttributeModifier> toolModifierBuilder(EquipmentSlot slot, ItemStack stack) {
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = new ImmutableMultimap.Builder<Attribute, AttributeModifier>();
-		AttributeModifier targetBurnTimeMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Target burn time", 4F, AttributeModifier.Operation.ADDITION);
-		AttributeModifier flammableBlockEfficiencyMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Flammable mining efficiency", 5F, AttributeModifier.Operation.ADDITION);
+		AttributeModifier targetBurnTimeMod = new AttributeModifier(BGUtil.TARGET_BURN_TIME_UUID, "Target burn time", 4F, AttributeModifier.Operation.ADDITION);
+		AttributeModifier flammableBlockEfficiencyMod = new AttributeModifier(BGUtil.FLAMMABLE_MINING_EFFICIENCY_UUID, "Flammable mining efficiency", 5F, AttributeModifier.Operation.ADDITION);
 		builder.put(BGAttributes.TARGET_BURN_TIME.get(), targetBurnTimeMod);
 		builder.put(BGAttributes.FLAMMABLE_BLOCK_BREAK_SPEED_BONUS.get(), flammableBlockEfficiencyMod);
 		return builder;

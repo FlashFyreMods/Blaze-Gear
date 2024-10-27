@@ -37,8 +37,8 @@ public class BrimsteelHorseArmourItem extends HorseArmorItem {
 		if (slot != EquipmentSlot.CHEST)
 			return super.getAttributeModifiers(slot, stack);
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = new ImmutableMultimap.Builder<Attribute, AttributeModifier>();
-		AttributeModifier fireResistanceMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Armour fire resistance", 0.1F, AttributeModifier.Operation.ADDITION);
-		AttributeModifier attackerBurnTimeMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Armour attacker burn time", 2F, AttributeModifier.Operation.ADDITION);
+		AttributeModifier fireResistanceMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Armour fire resistance", 0.3F, AttributeModifier.Operation.ADDITION);
+		AttributeModifier attackerBurnTimeMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Armour attacker burn time", 6F, AttributeModifier.Operation.ADDITION);
 		builder.put(BGAttributes.FIRE_RESISTANCE.get(), fireResistanceMod);
 		builder.put(BGAttributes.ATTACKER_BURN_TIME.get(), attackerBurnTimeMod);
 		builder.putAll(super.getAttributeModifiers(slot, stack));

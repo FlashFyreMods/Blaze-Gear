@@ -1,16 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-	"###"
+    " # ",
+    "#$#",
+	" # "
   ],
   "key": {
-    "#": {
+    "$": {
+      "item": "minecraft:shield"
+    },
+	"#": {
       "item": "blazegear:brimsteel_ingot"
     }
   },
   "result": {
-    "item": "blazegear:brimsteel_shield"
+    "item": "blazegear:brimsteel_block"
   }
 }

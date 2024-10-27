@@ -1,5 +1,6 @@
 package com.flashfyre.blazegear.item;
 
+import com.flashfyre.blazegear.BGUtil;
 import com.flashfyre.blazegear.registry.BGAttributes;
 import com.flashfyre.blazegear.registry.BGItems;
 import com.google.common.collect.ImmutableMultimap;
@@ -41,7 +42,7 @@ public class BrimsteelShieldItem extends ShieldItem {
         if (slot != EquipmentSlot.MAINHAND && slot != EquipmentSlot.OFFHAND)
             return super.getAttributeModifiers(slot, stack);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = new ImmutableMultimap.Builder<Attribute, AttributeModifier>();
-        AttributeModifier attackerBurnTimeMod = new AttributeModifier(BGItems.SLOT_MODIFIER_UUIDS[slot.getIndex()], "Shield attacker burn time", 4F, AttributeModifier.Operation.ADDITION);
+        AttributeModifier attackerBurnTimeMod = new AttributeModifier(BGUtil.SHIELD_BURN_TIME_UUID, "Shield attacker burn time", 4F, AttributeModifier.Operation.ADDITION);
         builder.put(BGAttributes.BLOCKED_ATTACKER_BURN_TIME.get(), attackerBurnTimeMod);
         builder.putAll(super.getAttributeModifiers(slot, stack));
         return builder.build();
