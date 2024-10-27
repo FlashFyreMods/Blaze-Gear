@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "blazegear:brimsteel_ingot"
+      "item": "blazegear:brimsteel_nugget"
     }
   },
   "result": {
-    "item": "blazegear:brimsteel_block"
+    "item": "blazegear:brimsteel_ingot"
   }
 }

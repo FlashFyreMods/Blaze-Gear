@@ -36,17 +36,6 @@ public class BrimsteelSwordItem extends SwordItem {
 	public float getDestroySpeed(ItemStack stack, BlockState state) {
 		return state.ignitedByLava() ? super.getDestroySpeed(stack, state) * 2.0F : super.getDestroySpeed(stack, state);
 	}
-	
-	/*@Override
-	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		int fireDuration = 4;
-		int level = EnchantmentHelper.getFireAspect(attacker);
-		if(level > 0) {
-			fireDuration += (level * 4);
-		}
-		target.setSecondsOnFire(fireDuration);
-		return super.hurtEnemy(stack, target, attacker);
-	}*/
 
 	@Override
 	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
