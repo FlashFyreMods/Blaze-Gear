@@ -5,6 +5,7 @@ import java.util.Optional;
 import com.flashfyre.blazegear.registry.BGAttributes;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.apache.logging.log4j.LogManager;
@@ -64,7 +65,7 @@ public class BlazeGear
 	@SubscribeEvent
 	public static void addAttributesToEntities(EntityAttributeModificationEvent event) {
 		event.add(EntityType.PLAYER, BGAttributes.FLAMMABLE_BLOCK_BREAK_SPEED_BONUS.get());
-		for(EntityType entityType : event.getTypes()) {
+		for(EntityType<? extends LivingEntity> entityType : event.getTypes()) {
 			if(!entityType.fireImmune() && !event.has(entityType, BGAttributes.FIRE_RESISTANCE.get())) {
 				event.add(entityType, BGAttributes.FIRE_RESISTANCE.get());
 			}
@@ -104,14 +105,5 @@ public class BlazeGear
 			event.accept(BGBlocks.BRIMSTEEL_BLOCK);
 		}
     }
-
-	@SubscribeEvent
-	public static void onClientSetup(FMLClientSetupEvent event) {
-		event.enqueueWork(() -> {
-			ItemProperties.register(BGItems.BRIMSTEEL_SHIELD.get(), new ResourceLocation("blocking"), (stack, level, livingEntity, seed) -> {
-				return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == stack ? 1.0F : 0.0F;
-			});
-		});
-	}
 }
 
