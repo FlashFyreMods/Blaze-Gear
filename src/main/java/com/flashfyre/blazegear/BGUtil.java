@@ -90,6 +90,13 @@ public class BGUtil {
     }
 
 	public static int getBrimsteelArmourCount(LivingEntity entity) {
+		if(entity instanceof AbstractHorse) {
+			AbstractHorse horse = (AbstractHorse) entity;
+			SimpleContainer inventory = horse.inventory;
+			if (inventory.getItem(1).getItem() == BGItems.BRIMSTEEL_HORSE_ARMOUR.get()) {
+				return 4;
+			}
+		}
 		int count = 0;
 		Iterable<ItemStack> armourStacks = entity.getArmorSlots();
 		if (Iterables.size(armourStacks) > 0) {

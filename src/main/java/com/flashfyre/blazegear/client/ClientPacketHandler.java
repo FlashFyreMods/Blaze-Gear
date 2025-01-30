@@ -21,7 +21,7 @@ public class ClientPacketHandler {
 		ClientLevel level = instance.level;
 		if(instance.player != null) {
 			if(packet.entityId != instance.player.getId() || !instance.options.getCameraType().isFirstPerson()) {
-				for(int n = 0; n < 2; ++n) {
+				for(int n = 0; n < packet.count; ++n) {
 					level.addParticle(ParticleTypes.LARGE_SMOKE, false, packet.x, packet.y, packet.z, 0, 0, 0);
 		        }			
 			}	

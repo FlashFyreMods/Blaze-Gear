@@ -13,12 +13,14 @@ public class BrimsteelParticlePacket {
 	protected final double y;
 	protected final double z;
 	protected final int entityId;
+	protected final int count;
 	
-	public BrimsteelParticlePacket(int entityId, double x, double y, double z) {
+	public BrimsteelParticlePacket(int entityId, double x, double y, double z, int count) {
 		this.entityId = entityId;
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.count = count;
 	}
 	
 	public void encode(FriendlyByteBuf buffer) {
@@ -26,10 +28,11 @@ public class BrimsteelParticlePacket {
 		buffer.writeDouble(x);
 		buffer.writeDouble(y);
 		buffer.writeDouble(z);
+		buffer.writeInt(count);
 	}
 	
 	public static BrimsteelParticlePacket decode(FriendlyByteBuf buffer) {
-	    return new BrimsteelParticlePacket(buffer.readInt(), buffer.readDouble(), buffer.readDouble(), buffer.readDouble());
+	    return new BrimsteelParticlePacket(buffer.readInt(), buffer.readDouble(), buffer.readDouble(), buffer.readDouble(), buffer.readInt());
 	}
 
 	public static void handle(BrimsteelParticlePacket packet, Supplier<NetworkEvent.Context> ctx) {

@@ -29,14 +29,13 @@ public class EventHandler {
 		LivingEntity entity = event.getEntity();
 		Level level = entity.getCommandSenderWorld();
 		if (level instanceof ServerLevel) {
-			if(BGUtil.isEntityWearingFullBrimsteel(entity)) {
-				double xzSpread = 0.5D;
-				if(entity instanceof Player) {
-					xzSpread = 0.6D;
-				}
+			int armourCount = BGUtil.getBrimsteelArmourCount(entity);
+			if(armourCount > 0) {
+				double xzSpread = entity instanceof Player ? 0.6D : 0.5D;
+				int particleCount = armourCount > 2 ? 2 : 1;
 				// Send a packet to clients tracking the chunk telling them to spawn particles at this entity's position
-				BlazeGear.SIMPLE_CHANNEL.send(PacketDistributor.TRACKING_CHUNK.with(() -> entity.getCommandSenderWorld().getChunkAt(entity.blockPosition())), new BrimsteelParticlePacket(entity.getId(), entity.getRandomX(xzSpread), entity.getRandomY(), entity.getRandomZ(xzSpread)));		
-			}			
+				BlazeGear.SIMPLE_CHANNEL.send(PacketDistributor.TRACKING_CHUNK.with(() -> entity.getCommandSenderWorld().getChunkAt(entity.blockPosition())), new BrimsteelParticlePacket(entity.getId(), entity.getRandomX(xzSpread), entity.getRandomY(), entity.getRandomZ(xzSpread), particleCount));
+			}
 		}		
 	}
 
@@ -73,7 +72,7 @@ public class EventHandler {
 		int count = BGUtil.getBrimsteelArmourCount(event.getEntity());
 		if(count > 0) {
 			Level level = target.level();
-			level.playSound((Player)null, target.getX(), target.getY(), target.getZ(), SoundEvents.BLAZE_HURT, target.getSoundSource(), count * 0.4F, (target.getRandom().nextFloat() - target.getRandom().nextFloat()) * 0.2F + 1.0F);
+			level.playSound((Player)null, target.getX(), target.getY(), target.getZ(), SoundEvents.BLAZE_HURT, target.getSoundSource(), count * 0.2F, (target.getRandom().nextFloat() - target.getRandom().nextFloat()) * 0.2F + 1.0F);
 		}
 	}
 
