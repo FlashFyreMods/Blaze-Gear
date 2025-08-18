@@ -4,6 +4,10 @@
     "blazegear:brimsteel_helmet",
 	"blazegear:brimsteel_chestplate",
 	"blazegear:brimsteel_leggings",
-	"blazegear:brimsteel_boots"
+	"blazegear:brimsteel_boots",
+	"blazegear:nethersteel_helmet",
+	"blazegear:nethersteel_chestplate",
+	"blazegear:nethersteel_leggings",
+	"blazegear:nethersteel_boots"
   ]
 }

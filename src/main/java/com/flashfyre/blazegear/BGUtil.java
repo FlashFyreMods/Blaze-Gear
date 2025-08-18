@@ -5,7 +5,6 @@ import com.flashfyre.blazegear.registry.BGItems;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Iterables;
 
-import com.google.common.collect.Multimap;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -78,7 +77,7 @@ public class BGUtil {
 	    		for(ItemStack stack : iterable) {
 	    			if(stack.getItem() instanceof ArmorItem) {
 	    				ArmorItem item = (ArmorItem) stack.getItem();
-	    				if(item.getMaterial() == BGItems.ARMOUR_BRIMSTEEL) { // If any of the armour isn't brimsteel return false
+	    				if(item.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL) { // If any of the armour isn't brimsteel return false
 	    					continue;
 	    				}
 	    			}
@@ -89,7 +88,7 @@ public class BGUtil {
 		}    	
     }
 
-	public static int getBrimsteelArmourCount(LivingEntity entity) {
+	public static int getBlazeArmourCount(LivingEntity entity) {
 		if(entity instanceof AbstractHorse) {
 			AbstractHorse horse = (AbstractHorse) entity;
 			SimpleContainer inventory = horse.inventory;
@@ -101,7 +100,7 @@ public class BGUtil {
 		Iterable<ItemStack> armourStacks = entity.getArmorSlots();
 		if (Iterables.size(armourStacks) > 0) {
 			for(ItemStack stack : armourStacks) {
-				if(stack.getItem() instanceof ArmorItem item && item.getMaterial() == BGItems.ARMOUR_BRIMSTEEL) {
+				if(stack.getItem() instanceof ArmorItem armour && (armour.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL || armour.getMaterial() == BGItems.NETHERSTEEL_ARMOUR_MATERIAL)) {
 					count++;
 				}
 			}
@@ -121,7 +120,7 @@ public class BGUtil {
 			Iterable<ItemStack> armourStacks = entity.getArmorSlots();
 			if (armourStacks != null && Iterables.size(armourStacks) > 0) {
 				for(ItemStack stack : armourStacks) {
-					if(stack.getItem() instanceof ArmorItem item && item.getMaterial() == BGItems.ARMOUR_BRIMSTEEL) {
+					if(stack.getItem() instanceof ArmorItem item && item.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL) {
 						return true;
 					}
 				}

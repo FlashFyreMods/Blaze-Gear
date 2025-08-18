@@ -3,20 +3,16 @@ package com.flashfyre.blazegear;
 import com.flashfyre.blazegear.client.BrimsteelParticlePacket;
 
 import com.flashfyre.blazegear.registry.BGAttributes;
-import com.flashfyre.blazegear.registry.BGItems;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
@@ -29,7 +25,7 @@ public class EventHandler {
 		LivingEntity entity = event.getEntity();
 		Level level = entity.getCommandSenderWorld();
 		if (level instanceof ServerLevel) {
-			int armourCount = BGUtil.getBrimsteelArmourCount(entity);
+			int armourCount = BGUtil.getBlazeArmourCount(entity);
 			if(armourCount > 0) {
 				double xzSpread = entity instanceof Player ? 0.6D : 0.5D;
 				int particleCount = armourCount > 2 ? 2 : 1;
@@ -69,7 +65,7 @@ public class EventHandler {
 			}
 		}
 
-		int count = BGUtil.getBrimsteelArmourCount(event.getEntity());
+		int count = BGUtil.getBlazeArmourCount(event.getEntity());
 		if(count > 0) {
 			Level level = target.level();
 			level.playSound((Player)null, target.getX(), target.getY(), target.getZ(), SoundEvents.BLAZE_HURT, target.getSoundSource(), count * 0.2F, (target.getRandom().nextFloat() - target.getRandom().nextFloat()) * 0.2F + 1.0F);

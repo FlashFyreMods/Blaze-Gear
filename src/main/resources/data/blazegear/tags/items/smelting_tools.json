@@ -5,6 +5,11 @@
 	"blazegear:brimsteel_hoe",
 	"blazegear:brimsteel_pickaxe",
 	"blazegear:brimsteel_shovel",
-    "blazegear:brimsteel_sword"
+    "blazegear:brimsteel_sword",
+	"blazegear:nethersteel_axe",
+	"blazegear:nethersteel_hoe",
+	"blazegear:nethersteel_pickaxe",
+	"blazegear:nethersteel_shovel",
+    "blazegear:nethersteel_sword"
   ]
 }

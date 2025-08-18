@@ -16,7 +16,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -49,15 +48,15 @@ public class ClientEvents {
         if (render instanceof LivingEntityRenderer livingRenderer) {
             livingRenderer.addLayer(new BlazeArmsLayer(livingRenderer,
                     new UpperBlazeArmsModel(Minecraft.getInstance().getEntityModels().bakeLayer(ClientEvents.UPPER_BLAZE_ARMS_LAYER)),
-                    (Object e) -> ((LivingEntity) e).getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ArmorItem helmet && helmet.getMaterial() == BGItems.ARMOUR_BRIMSTEEL));
+                    (Object e) -> ((LivingEntity) e).getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ArmorItem helmet && (helmet.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL || helmet.getMaterial() == BGItems.NETHERSTEEL_ARMOUR_MATERIAL)));
             livingRenderer.addLayer(new BlazeArmsLayer(livingRenderer,
                     new MiddleBlazeArmsModel(Minecraft.getInstance().getEntityModels().bakeLayer(ClientEvents.MIDDLE_BLAZE_ARMS_LAYER)),
-                    (Object e) -> ((LivingEntity) e).getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ArmorItem chestplate && chestplate.getMaterial() == BGItems.ARMOUR_BRIMSTEEL));
+                    (Object e) -> ((LivingEntity) e).getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ArmorItem chestplate && (chestplate.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL || chestplate.getMaterial() == BGItems.NETHERSTEEL_ARMOUR_MATERIAL)));
             livingRenderer.addLayer(new BlazeArmsLayer(livingRenderer,
                     new LowerBlazeArmsModel(Minecraft.getInstance().getEntityModels().bakeLayer(ClientEvents.LOWER_BLAZE_ARMS_LAYER)),
                     (Object e) ->
-                            ((LivingEntity) e).getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ArmorItem legs && legs.getMaterial() == BGItems.ARMOUR_BRIMSTEEL ||
-                            ((LivingEntity) e).getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ArmorItem boots && boots.getMaterial() == BGItems.ARMOUR_BRIMSTEEL));
+                            ((LivingEntity) e).getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ArmorItem legs && (legs.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL || legs.getMaterial() == BGItems.NETHERSTEEL_ARMOUR_MATERIAL) ||
+                            ((LivingEntity) e).getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ArmorItem boots && (boots.getMaterial() == BGItems.BRIMSTEEL_ARMOUR_MATERIAL || boots.getMaterial() == BGItems.NETHERSTEEL_ARMOUR_MATERIAL)));
         }
     }
 

@@ -89,6 +89,10 @@ public class BlazeGear
 			event.accept(BGItems.BRIMSTEEL_AXE);
 			event.accept(BGItems.BRIMSTEEL_HOE);
 			event.accept(BGItems.FLINT_AND_BRIMSTEEL);
+			event.accept(BGItems.NETHERSTEEL_SHOVEL);
+			event.accept(BGItems.NETHERSTEEL_PICKAXE);
+			event.accept(BGItems.NETHERSTEEL_AXE);
+			event.accept(BGItems.NETHERSTEEL_HOE);
         } else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
         	event.accept(BGItems.BRIMSTEEL_SWORD);
 			event.accept(BGItems.BRIMSTEEL_HELMET);
@@ -97,6 +101,11 @@ public class BlazeGear
 			event.accept(BGItems.BRIMSTEEL_BOOTS);
 			event.accept(BGItems.BRIMSTEEL_HORSE_ARMOUR);
 			event.accept(BGItems.BRIMSTEEL_SHIELD);
+			event.accept(BGItems.NETHERSTEEL_SWORD);
+			event.accept(BGItems.NETHERSTEEL_HELMET);
+			event.accept(BGItems.NETHERSTEEL_CHESTPLATE);
+			event.accept(BGItems.NETHERSTEEL_LEGGINGS);
+			event.accept(BGItems.NETHERSTEEL_BOOTS);
         } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			event.accept(BGItems.BRIMSTEEL_INGOT);
 			event.accept(BGItems.BRIMSTEEL_NUGGET);

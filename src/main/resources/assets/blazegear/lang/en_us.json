@@ -21,6 +21,18 @@
 	"item.blazegear.brimsteel_horse_armour": "Brimsteel Horse Armour",
 	
 	"item.blazegear.brimsteel_tool.tooltip": "Smelts block drops",
+
+	"item.blazegear.nethersteel_sword": "Nethersteel Sword",
+	"item.blazegear.nethersteel_axe": "Nethersteel Axe",
+	"item.blazegear.nethersteel_shovel": "Nethersteel Shovel",
+	"item.blazegear.nethersteel_pickaxe": "Nethersteel Pickaxe",
+	"item.blazegear.nethersteel_hoe": "Nethersteel Hoe",
+	"item.blazegear.nethersteel_helmet": "Nethersteel Helmet",
+	"item.blazegear.nethersteel_chestplate": "Nethersteel Chestplate",
+	"item.blazegear.nethersteel_leggings": "Nethersteel Leggings",
+	"item.blazegear.nethersteel_boots": "Nethersteel Boots",
+
+	"item.blazegear.nethersteel_tool.tooltip": "Smelts block drops",
 	
 	"attribute.blazegear.name.player.flammable_block_break_speed_bonus": "Extra Flammable Block Efficiency",
 	"attribute.blazegear.name.generic.fire_resistance": "Fire Resistance",
