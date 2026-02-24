@@ -106,6 +106,8 @@ public class BlazeGear
 			event.accept(BGItems.NETHERSTEEL_CHESTPLATE);
 			event.accept(BGItems.NETHERSTEEL_LEGGINGS);
 			event.accept(BGItems.NETHERSTEEL_BOOTS);
+			event.accept(BGItems.NETHERSTEEL_SHIELD);
+			event.accept(BGItems.NETHERSTEEL_HORSE_ARMOUR);
         } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			event.accept(BGItems.BRIMSTEEL_INGOT);
 			event.accept(BGItems.BRIMSTEEL_NUGGET);

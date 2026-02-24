@@ -8,31 +8,24 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.network.NetworkEvent;
 
 public class BrimsteelParticlePacket {
-	
-	protected final double x;
-	protected final double y;
-	protected final double z;
+	protected final double xzSpread;
 	protected final int entityId;
 	protected final int count;
 	
-	public BrimsteelParticlePacket(int entityId, double x, double y, double z, int count) {
+	public BrimsteelParticlePacket(int entityId, double xzSpread, int count) {
 		this.entityId = entityId;
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		this.xzSpread = xzSpread;
 		this.count = count;
 	}
 	
 	public void encode(FriendlyByteBuf buffer) {
 		buffer.writeInt(entityId);
-		buffer.writeDouble(x);
-		buffer.writeDouble(y);
-		buffer.writeDouble(z);
+		buffer.writeDouble(xzSpread);
 		buffer.writeInt(count);
 	}
 	
 	public static BrimsteelParticlePacket decode(FriendlyByteBuf buffer) {
-	    return new BrimsteelParticlePacket(buffer.readInt(), buffer.readDouble(), buffer.readDouble(), buffer.readDouble(), buffer.readInt());
+	    return new BrimsteelParticlePacket(buffer.readInt(), buffer.readDouble(), buffer.readInt());
 	}
 
 	public static void handle(BrimsteelParticlePacket packet, Supplier<NetworkEvent.Context> ctx) {

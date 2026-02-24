@@ -3,6 +3,7 @@ package com.flashfyre.blazegear;
 import com.flashfyre.blazegear.client.BrimsteelParticlePacket;
 
 import com.flashfyre.blazegear.registry.BGAttributes;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
@@ -29,8 +30,7 @@ public class EventHandler {
 			if(armourCount > 0) {
 				double xzSpread = entity instanceof Player ? 0.6D : 0.5D;
 				int particleCount = armourCount > 2 ? 2 : 1;
-				// Send a packet to clients tracking the chunk telling them to spawn particles at this entity's position
-				BlazeGear.SIMPLE_CHANNEL.send(PacketDistributor.TRACKING_CHUNK.with(() -> entity.getCommandSenderWorld().getChunkAt(entity.blockPosition())), new BrimsteelParticlePacket(entity.getId(), entity.getRandomX(xzSpread), entity.getRandomY(), entity.getRandomZ(xzSpread), particleCount));
+				BlazeGear.SIMPLE_CHANNEL.send(PacketDistributor.TRACKING_CHUNK.with(() -> entity.getCommandSenderWorld().getChunkAt(entity.blockPosition())), new BrimsteelParticlePacket(entity.getId(), xzSpread, particleCount));
 			}
 		}		
 	}

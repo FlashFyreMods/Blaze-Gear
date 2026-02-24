@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.flashfyre.blazegear.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"refmap": "mixins.blazegear.refmap.json",
+	"mixins": [
+		"HumanoidArmorLayerMixin"
+	],
+	"client": [
+	],
+	"minVersion": "0.8"
+}

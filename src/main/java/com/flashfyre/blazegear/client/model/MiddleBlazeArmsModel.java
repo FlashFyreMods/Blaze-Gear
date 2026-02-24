@@ -7,6 +7,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,8 +20,12 @@ public class MiddleBlazeArmsModel extends BaseBlazeArmsModel<LivingEntity> {
     public void setupAnim(@NotNull LivingEntity livingEntity, float limbSwing, float limbSwingAmount, float ageInTicks,
                           float netHeadYaw, float headPitch) {
         float ySpeed = 1.0F;
-        float y = 0.0F;
-        float r = 12.0F;
+        float y = 2.0F;
+        float r = 11.5F + limbSwingAmount * 6.0F;
+
+        if(livingEntity.hasItemInSlot(EquipmentSlot.MAINHAND) || livingEntity.hasItemInSlot(EquipmentSlot.OFFHAND)) r += 2.0F;
+
+        if(livingEntity.isUsingItem()) r += 2.0F;
 
         float f = ((float)Math.PI / 4F) + ageInTicks * (float)Math.PI * 0.03F;
 

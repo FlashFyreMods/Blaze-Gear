@@ -2,7 +2,7 @@
 	"advancements.blazegear.obtain_brimsteel_ingot.title": "Hot to the Touch",
 	"advancements.blazegear.obtain_brimsteel_ingot.description": "Craft or find a Brimsteel Ingot",
 	"advancements.blazegear.brimsteel_armour.title": "Cover Me in Flames",
-	"advancements.blazegear.brimsteel_armour.description": "Get a full suit of Brimsteel Armour",
+	"advancements.blazegear.brimsteel_armour.description": "Get a full suit of Brimsteel Armor",
 
 	"block.blazegear.brimsteel_block": "Block of Brimsteel",
 	"item.blazegear.brimsteel_sword": "Brimsteel Sword",
@@ -18,7 +18,7 @@
 	"item.blazegear.brimsteel_ingot": "Brimsteel Ingot",
 	"item.blazegear.brimsteel_nugget": "Brimsteel Nugget",
 	"item.blazegear.flint_and_brimsteel": "Flint and Brimsteel",
-	"item.blazegear.brimsteel_horse_armour": "Brimsteel Horse Armour",
+	"item.blazegear.brimsteel_horse_armour": "Brimsteel Horse Armor",
 	
 	"item.blazegear.brimsteel_tool.tooltip": "Smelts block drops",
 
@@ -31,6 +31,9 @@
 	"item.blazegear.nethersteel_chestplate": "Nethersteel Chestplate",
 	"item.blazegear.nethersteel_leggings": "Nethersteel Leggings",
 	"item.blazegear.nethersteel_boots": "Nethersteel Boots",
+	"item.blazegear.nethersteel_shield": "Nethersteel Shield",
+	"item.blazegear.nethersteel_horse_armour": "Nethersteel Horse Armor",
+
 
 	"item.blazegear.nethersteel_tool.tooltip": "Smelts block drops",
 	

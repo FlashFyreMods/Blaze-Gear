@@ -21,7 +21,7 @@ public class UpperBlazeArmsModel extends BaseBlazeArmsModel<LivingEntity> {
         float ySpeed = 1.0F;
         float y1 = -5.0F; // Note that negative values are higher up and vice versa
         float f = ageInTicks * (float)Math.PI * -0.1F;
-        float r1 = 14.0F;
+        float r1 = 14.0F + limbSwingAmount * 5.0F;
 
         for (int i = 0; i < 4; ++i) {
             this.blazeSticks[i].y = y1 + (Mth.cos(((float)(i * 2) + ageInTicks) * 0.25F) * (ySpeed));

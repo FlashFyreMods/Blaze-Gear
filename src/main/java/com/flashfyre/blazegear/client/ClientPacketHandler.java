@@ -5,6 +5,8 @@ import java.util.function.Supplier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.network.NetworkEvent;
 
 public class ClientPacketHandler {
@@ -22,7 +24,8 @@ public class ClientPacketHandler {
 		if(instance.player != null) {
 			if(packet.entityId != instance.player.getId() || !instance.options.getCameraType().isFirstPerson()) {
 				for(int n = 0; n < packet.count; ++n) {
-					level.addParticle(ParticleTypes.LARGE_SMOKE, false, packet.x, packet.y, packet.z, 0, 0, 0);
+					Entity entity = level.getEntity(packet.entityId);
+					level.addParticle(ParticleTypes.LARGE_SMOKE, false, entity.getRandomX(packet.xzSpread), entity.getRandomY(), entity.getRandomZ(packet.xzSpread), 0, 0, 0);
 		        }			
 			}	
 		}			

@@ -166,4 +166,6 @@ public class BGItems {
 	public static final RegistryObject<Item> NETHERSTEEL_PICKAXE = ITEMS.register("nethersteel_pickaxe", () -> new BrimsteelPickaxeItem(NETHERSTEEL_TIER, 1, -2.4F, new Item.Properties().fireResistant()));
 	public static final RegistryObject<Item> NETHERSTEEL_SHOVEL = ITEMS.register("nethersteel_shovel", () -> new BrimsteelShovelItem(NETHERSTEEL_TIER, 1.5F, -2.4F, new Item.Properties().fireResistant()));
 	public static final RegistryObject<Item> NETHERSTEEL_HOE = ITEMS.register("nethersteel_hoe", () -> new BrimsteelHoeItem(NETHERSTEEL_TIER, -3, 0.0F, new Item.Properties().fireResistant()));
+	public static final RegistryObject<Item> NETHERSTEEL_SHIELD = ITEMS.register("nethersteel_shield", () -> new NethersteelShieldItem(new Item.Properties().durability(864).fireResistant()));
+	public static final RegistryObject<Item> NETHERSTEEL_HORSE_ARMOUR = ITEMS.register("nethersteel_horse_armour", () -> new NethersteelHorseArmourItem(12, new Item.Properties().stacksTo(1).fireResistant()));
 }

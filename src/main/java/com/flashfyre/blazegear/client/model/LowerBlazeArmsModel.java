@@ -21,7 +21,7 @@ public class LowerBlazeArmsModel extends BaseBlazeArmsModel<LivingEntity> {
         float ySpeed = 1.0F;
         float y3 = 13.1F;
         float f = ageInTicks * (float)Math.PI * -0.1F;
-        float r3 = 7.0F;
+        float r3 = 7.0F + limbSwingAmount * 9.5F;
 
         f = 0.47123894F + ageInTicks * (float)Math.PI * -0.05F;
 

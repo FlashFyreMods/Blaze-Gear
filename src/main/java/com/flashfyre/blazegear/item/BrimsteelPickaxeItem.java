@@ -40,7 +40,7 @@ public class BrimsteelPickaxeItem extends PickaxeItem {
 	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
 		if (slot != EquipmentSlot.MAINHAND)
 			return super.getAttributeModifiers(slot, stack);
-		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = BGUtil.toolModifierBuilder(slot, stack);
+		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = BGUtil.toolModifierBuilder(this.getTier());
 		builder.putAll(super.getAttributeModifiers(slot, stack));
 		return builder.build();
 	}
