@@ -24,9 +24,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = BlazeGear.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientEvents {
-    public static ModelLayerLocation UPPER_BLAZE_ARMS_LAYER = new ModelLayerLocation(new ResourceLocation("mineraft:player"), "blazegear_upper_blaze_arms");
-    public static ModelLayerLocation MIDDLE_BLAZE_ARMS_LAYER = new ModelLayerLocation(new ResourceLocation("mineraft:player"), "blazegear_middle_blaze_arms");
-    public static ModelLayerLocation LOWER_BLAZE_ARMS_LAYER = new ModelLayerLocation(new ResourceLocation("mineraft:player"), "blazegear_lower_blaze_arms");
+    public static ModelLayerLocation UPPER_BLAZE_ARMS_LAYER = new ModelLayerLocation(new ResourceLocation("minecraft:player"), "blazegear_upper_blaze_arms");
+    public static ModelLayerLocation MIDDLE_BLAZE_ARMS_LAYER = new ModelLayerLocation(new ResourceLocation("minecraft:player"), "blazegear_middle_blaze_arms");
+    public static ModelLayerLocation LOWER_BLAZE_ARMS_LAYER = new ModelLayerLocation(new ResourceLocation("minecraft:player"), "blazegear_lower_blaze_arms");
 	
 	@SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
