@@ -1,0 +1,47 @@
+{   
+    "advancements.blazegear.obtain_brimsteel_ingot.title": "灼热之触",
+    "advancements.blazegear.obtain_brimsteel_ingot.description": "铸造或找到煌焰钢锭",
+    "advancements.blazegear.brimsteel_armour.title": "以残躯化烈火",
+    "advancements.blazegear.brimsteel_armour.description": "获取全套煌焰钢盔甲",
+ 
+    "block.blazegear.brimsteel_block": "煌焰钢块",
+    "item.blazegear.brimsteel_sword": "煌焰钢剑",
+    "item.blazegear.brimsteel_axe": "煌焰钢斧",
+    "item.blazegear.brimsteel_shovel": "煌焰钢铲",
+    "item.blazegear.brimsteel_pickaxe": "煌焰钢镐",
+    "item.blazegear.brimsteel_hoe": "煌焰钢锄",
+    "item.blazegear.brimsteel_helmet": "煌焰钢头盔",
+    "item.blazegear.brimsteel_chestplate": "煌焰钢胸甲",
+    "item.blazegear.brimsteel_leggings": "煌焰钢护腿",
+    "item.blazegear.brimsteel_boots": "煌焰钢靴子",
+    "item.blazegear.brimsteel_ingot": "煌焰钢锭",
+    "item.blazegear.brimsteel_nugget": "煌焰钢粒",
+    "item.blazegear.flint_and_brimsteel": "煌焰钢打火石",
+    "item.blazegear.brimsteel_horse_armour": "煌焰钢马铠",
+    "item.blazegear.brimsteel_shield": "煌焰钢盾牌",
+     
+    "item.blazegear.brimsteel_horse_armour.tooltip": "防止热地板和着火对马匹造成伤害。",
+    "item.blazegear.brimsteel_tool.tooltip": "点燃着火的目标，以两倍的速度自动打破易燃方块，挖掘矿物时自动烧炼。",
+    "item.blazegear.brimsteel_armour.tooltip": "配备全套设备可以防止热地板和着火损坏。",
+
+    "item.blazegear.nethersteel_sword": "狱焰合金剑",
+	"item.blazegear.nethersteel_axe": "狱焰合金斧",
+	"item.blazegear.nethersteel_shovel": "狱焰合金铲",
+	"item.blazegear.nethersteel_pickaxe": "狱焰合金镐",
+	"item.blazegear.nethersteel_hoe": "狱焰合金锄",
+	"item.blazegear.nethersteel_helmet": "狱焰合金头盔",
+	"item.blazegear.nethersteel_chestplate": "狱焰合金胸甲",
+	"item.blazegear.nethersteel_leggings": "狱焰合金护腿",
+	"item.blazegear.nethersteel_boots": "狱焰合金靴子",
+	"item.blazegear.nethersteel_shield": "狱焰合金盾牌",
+	"item.blazegear.nethersteel_horse_armour": "狱焰合金马铠",
+
+
+	"item.blazegear.nethersteel_tool.tooltip": "点燃着火的目标，以两倍的速度自动破坏易燃方块，挖掘矿物时自动烧炼。",
+	
+	"attribute.blazegear.name.player.flammable_block_break_speed_bonus": "点燃着火的目标，以两倍的速度自动破坏易燃方块，挖掘矿物时自动烧炼",
+	"attribute.blazegear.name.generic.fire_resistance": "火焰保护",
+	"attribute.blazegear.name.generic.attacker_burn_time": "攻击者附加的灼烧时间",
+	"attribute.blazegear.name.generic.blocked_attacker_burn_time": "阻挡的灼烧时间",
+	"attribute.blazegear.name.generic.target_burn_time": "被攻击者附加的灼烧时间"
+}
